@@ -1,0 +1,439 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Webmania - Agency, Startup and SaaS template</title>
+	<meta name="description" content="Webmania is a Agency, Startup and SaaS template by tempload." />
+	<meta name="keywords" content="webmania, startup, saas, agency, development, html, template, tempload" />
+	<meta name="author" content="tempload"/>
+
+	<!-- Favicon -->
+	<link rel="icon" type="image/png" href="{% static 'кassets/images/favicon/favicon.png' %}" />
+
+	<!-- Bootstrap & Plugins CSS -->
+	<link href="{% static 'assets/css/bootstrap.min.css' %}" rel="stylesheet" type="text/css">
+	<link href="{% static 'assets/css/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+	<link href="{% static 'assets/css/magnific-popup.css' %}" rel="stylesheet" type="text/css">
+
+	<!-- Custom CSS -->
+	<link href="{% static 'assets/css/orange.css' %}" rel="stylesheet" type="text/css">
+</head>
+<body>
+
+	<!-- ***** Preloader Start ***** -->
+	<div class="preloader-wrapper">
+		<div class="loader">
+			<div class="loader-inner"></div>
+		</div>
+	</div>
+	<!-- ***** Preloader End ***** -->
+	
+	
+	<!-- ***** Header Area Start ***** -->
+	<header class="header-area">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
+					<nav class="main-nav">
+						<!-- ***** Logo Start ***** -->
+						<a href="{% url 'home' %}" class="logo">
+							<img src="{{info.logo.url}}" alt="Webmania"/>
+						</a>
+						<!-- ***** Logo End ***** -->
+
+
+						<!-- ***** Menu Start ***** -->
+						<ul class="nav">
+							<li><a href="{% url 'home' %}">Home</a></li>
+							
+							<li class="submenu">
+								<a href="javascript:;">Pages</a>
+								<ul>
+									<li><a href="{% url 'about'%}">About Us</a></li>
+									<li><a href="{% url 'faq'%}">FAQ's</a></li>
+									<li><a href="{% url 'blog' %}">Blog</a></li>
+								</ul>
+							</li>
+							<li><a href="{% url 'contact' %}">Contact</a></li>
+							<li><a href="#" class="btn-nav-line"><span>Free Try</span></a></li>
+						</ul>
+						<a class='menu-trigger'>
+							<span>Menu</span>
+						</a>
+						<!-- ***** Menu End ***** -->						
+					</nav>
+				</div>
+			</div>
+		</div>
+	</header>
+	<!-- ***** Header Area End ***** -->
+
+
+	<!-- ***** Welcome Area Start ***** -->
+	<div class="welcome-area" id="welcome">
+		<!-- ***** Header Background Image Start ***** -->
+		<div class="right-bg">
+			<img src="{{backround.img.url}}" class="img-fluid float-right" alt="">
+		</div>
+		<!-- ***** Header Background Image End ***** -->
+
+		<div class="header-bg">
+			<img src="{% static 'assets/images/header-bg.svg' %}" class="img-fluid" alt="" height="100%" width="100%">
+		</div>
+
+		<!-- ***** Header Text Start ***** -->
+
+		<div class="header-text">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-5 col-md-12 col-sm-12">
+						<h1>{{width.title}}</h1>
+						<p>{{width.text}}</p>
+						<form action="" method="post">
+							{% csrf_token%}
+						<div class="email-box">  	
+							<div class="input">
+								<input type="email" placeholder="Enter your email" name="email">
+								<button>Get started</button>
+							</div>
+						</form>
+							<span>{{width.titile5}}</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- ***** Header Text End ***** -->
+
+		<!-- ***** Play Button Start ***** -->
+		<div class="play-button-wrapper">
+			<a href="{{youtube.youtube}}" class="btn-play">
+				<i class="fa fa-play"></i>
+			</a>
+		</div>
+		<!-- ***** Play Button End ***** -->
+	</div>
+	<!-- ***** Welcome Area End ***** -->
+
+
+	<!-- ***** Features Small Start ***** -->
+	<section class="section white padding-bottom-90" id="features">
+		<div class="bg-top"></div>
+		<div class="bg-bottom"></div>
+		<div class="container">
+			<!-- ***** Section Title Start ***** -->
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="center-heading">
+						<h2 class="section-title">{{text.title}}</h2>
+					</div>
+				</div>
+				<div class="offset-lg-3 col-lg-6">
+					<div class="center-text">
+						<p>{{text.text}}</p>
+					</div>
+				</div>
+			</div>
+			<!-- ***** Section Title End ***** -->
+
+			<div class="row">
+				<!-- ***** Features Small Item Start ***** -->
+				{% for i in webmain%}
+				<div class="col-lg-3 col-md-6 col-sm-6 col-12" data-scroll-reveal="enter bottom move 50px over 0.6s after 0.2s">
+					<a href="#" class="features-small-item">
+						<div class="icon">
+							<i class="fa fa-check-square-o"></i>
+						</div>
+						<h5 class="features-title">{{i.title}}</h5>
+						<p>{{i.text}}</p>
+						<div class="button">
+							<i class="fa fa-chevron-right"></i>
+						</div>
+					</a>
+				</div>
+				<!-- ***** Features Small Item End ***** -->
+				{%endfor%}
+				<!-- ***** Features Small Item End ***** -->
+			</div>
+		</div>
+	</section>
+	<!-- ***** Features Small End ***** -->
+	{% for i in about%}
+		{% if i.rigth %}
+	<!-- ***** Features Big Item Start ***** -->
+
+	<section class="section padding-bottom-100">
+		<div class="container">
+			<div class="row">
+				
+				<div class="col-lg-6 col-md-6 col-sm-12 align-self-center mobile-bottom-fix"  data-scroll-reveal="enter right move 30px over 0.6s after 0.3s">
+					<img src="{{i.img.url}}" class="img-fluid float-left" alt="App">
+				</div>
+				<div class="col-lg-6 col-md-6 col-sm-12 align-self-center">
+					<div class="left-heading">
+						<h2 class="section-title">{{ i.name }}</h2>
+					</div>
+					<div class="left-text">
+						<p>{{ i.text}}</p>
+						<ul>
+							{% for i in i.advantege.all%}
+							<li>{{i.name}}</li>
+							{% endfor %}
+							
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- ***** Features Big Item End ***** -->
+		{%else%}
+
+	<!-- ***** Features Big Item Start ***** -->
+	<section class="section white padding-bottom-100">
+		<div class="bg-top"></div>
+		<div class="bg-bottom"></div>
+		<div class="container position-relative">
+			<div class="row">
+				<div class="col-lg-6 col-md-6 col-sm-12 align-self-center mobile-bottom-fix">
+					<div class="left-heading">
+						<h2 class="section-title">{{i.name}}</h2>
+					</div>
+					<div class="left-text">
+						<p>{{i.text}}</p>
+						<ul>
+							{% for i in i.advantege.all%}
+							<li>{{i.name}}</li>
+							{% endfor %}
+							
+						</ul>
+					</div>
+				</div>
+				<div class="col-lg-6 col-md-6 col-sm-12 align-self-center" data-scroll-reveal="enter left move 30px over 0.6s after 0.4s">
+					<img src="{{i.img.url}}" class="img-fluid float-right" alt="App">
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- ***** Features Big Item End ***** -->
+		{% endif%}
+		{% endfor%}
+
+
+	<!-- ***** API Parallax Start ***** -->
+	
+	<section class="parallax" data-image="{% static 'assets/images/photos/parallax.jpg' %}">
+		<div class="parallax-content">
+			<div class="container">
+				<div class="row">
+					<div class="offset-lg-2 col-lg-8">
+						<div class="info">
+							<p>{{API.text}}</p>
+						</div>
+					</div>
+				</div>
+
+				<!-- ***** API & SDK Buttons Start ***** -->
+				<div class="row">
+					<div class="col-lg-3 col-md-6 col-sm-12 api-btn-content">
+						<a href="#" class="btn-api">
+							<i class="fa fa-code"></i>
+							<span>{{API.web}}</span>
+						</a>
+					</div>
+					<div class="col-lg-3 col-md-6 col-sm-12 api-btn-content">
+						<a href="#" class="btn-api">
+							<i class="fa fa-apple"></i>
+							<span>{{API.ios}}</span>
+						</a>
+					</div>
+					<div class="col-lg-3 col-md-6 col-sm-12 api-btn-content">
+						<a href="#" class="btn-api">
+							<i class="fa fa-android"></i>
+							<span>{{API.android}}</span>
+						</a>
+					</div>
+					<div class="col-lg-3 col-md-6 col-sm-12 api-btn-content">
+						<a href="#" class="btn-api">
+							<i class="fa fa-file-text-o"></i>
+							<span>{{API.document}}</span>
+						</a>
+					</div>
+				</div>
+				
+				<!-- ***** API & SDK Buttons End ***** -->
+			</div>
+		</div>
+	</section>
+	<!-- ***** API Parallax End ***** -->
+
+
+	<!-- ***** Testimonials Start ***** -->
+	<section class="section padding-bottom-80" id="testimonials">
+		<div class="container">
+			<!-- ***** Section Title Start ***** -->
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="center-heading">
+						<h2 class="section-title">{{blog_text.title2}}</h2>
+					</div>
+				</div>
+				<div class="offset-lg-3 col-lg-6">
+					<div class="center-text">
+						<p>{{blog_text.text2}}</p>
+					</div>
+				</div>
+			</div>
+			<!-- ***** Section Title End ***** -->
+
+			<div class="row testimonials-wrapper">
+				<!-- ***** Testimonials Item Start ***** -->
+				{% for i in worker%}
+				<div class="col-lg-4 col-md-6 col-sm-12">
+					<div class="testimonials-item">
+						<div class="user">
+							<img src="{{i.img.url}}" alt="">
+						</div>
+						<div class="testimonials-content">
+							<h3 class="user-name">{{i.name}}</h3>
+							<span>{{i.mini_name}}</span>
+							<div class="txt">
+								<p>{{i.text}} </p>
+							</div>
+						</div>
+					</div>
+				</div>
+				{%endfor%}
+
+
+	<!-- ***** Pricing Plans Start ***** -->
+	
+	<!-- ***** Pricing Plans End ***** -->
+
+
+	<!-- ***** Counter Parallax Start ***** -->
+	<section class="parallax-counter" data-image="{% static 'assets/images/photos/parallax-counter.jpg' %}">
+		<div class="parallax-content">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-3 col-md-6 col-sm-12">
+						<div class="count-item">
+							<strong>{{data_1}}</strong>
+							<span>{{result.title1}}</span>
+						</div>
+					</div>
+					<div class="col-lg-3 col-md-6 col-sm-12">
+						<div class="count-item">
+							<strong>{{data_2}}</strong>
+							<span>{{result.title2}}</span>
+						</div>
+					</div>
+					<div class="col-lg-3 col-md-6 col-sm-12">
+						<div class="count-item">
+							<strong>{{data_3}}</strong>
+							<span>{{result.title3}}</span>
+						</div>
+					</div>
+					<div class="col-lg-3 col-md-6 col-sm-12">
+						<div class="count-item">
+							<strong>{{data_4}}</strong>
+							<span>{{result.title4}}</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<!-- ***** Counter Parallax End ***** -->
+
+
+	<!-- ***** Blog Start ***** -->
+	<section class="section white bg-center-left" id="blog">
+		<div class="container">
+			<!-- ***** Section Title Start ***** -->
+			<div class="row">
+				
+				<div class="col-lg-12">
+
+					<div class="center-heading">
+						<h2 class="section-title">{{blog_text.title}}</h2>
+					</div>
+				
+				</div>
+				<div class="offset-lg-3 col-lg-6">
+					<div class="center-text">
+						<p>{{blog_text.text}}</p>
+					</div>
+				</div>
+			</div>
+			<!-- ***** Section Title End ***** -->
+
+			<div class="row">
+				{% for i in blog%}
+				<div class="col-lg-4 col-md-6 col-sm-12">
+					<div class="blog-post-thumb">
+						<div class="img">
+							<img src="{{i.img.url}}" alt="">
+						</div>
+						<h3>
+							<a href="{% static 'orange-blog-single.html' %}">{{i.name}}</a>
+						</h3>
+						<div class="text">
+							{{i.text}}
+						</div>
+						<a href="{%url 'blog_sing' i.id%}" class="btn-primary-line">{{i.mini_text}}</a>
+					</div>
+				</div>
+				{%endfor%}
+			</div>
+		</div>
+	</section>
+	<!-- ***** Blog End ***** -->
+
+	
+	<!-- ***** Footer Start ***** -->
+	<footer>
+		<div class="container">
+			<div class="row">
+				<div class="col-lg-6 col-md-12 col-sm-12">
+					<img src="{{info.logo.url}}" class="logo" alt="">
+					<div class="text">{{info.desc}}</div>
+				</div>
+				<div class="col-lg-2"></div>
+				<div class="col-lg-4 col-md-4 col-sm-12">
+					<h5>Contact Us</h5>
+					<div class="address">
+						<p>{{info.adres}}</p>
+						<p>Phone: {{info.phone}}</p>
+						<p><span>E-Mail:</span><a href="#">{{info.email}}</a></p>
+						
+					</div>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-lg-12">
+					<p class="copyright">© 2021 Webmania. All Rights Reserved.</p>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<!-- ***** Footer End ***** -->
+
+
+
+	<!-- jQuery -->
+	<script src="{% static 'assets/js/jquery-3.6.0.min.js' %}"></script>
+	<script src="{% static 'assets/js/popper.js' %}"></script>
+	<script src="{% static 'assets/js/bootstrap.min.js' %}"></script>
+	<script src="{% static 'assets/js/scrollreveal.min.js' %}"></script>
+	<script src="{% static 'assets/js/parallax.min.js' %}"></script>
+	<script src="{% static 'assets/js/waypoints.min.js' %}"></script>
+	<script src="{% static 'assets/js/jquery.counterup.min.js' %}"></script>
+	<script src="{% static 'assets/js/jquery.magnific-popup.min.js' %}"></script>
+	<script src="{% static 'assets/js/imgfix.min.js' %}"></script>	
+	<script src="{% static 'assets/js/custom.js' %}"></script>
+</body>
+</html>
